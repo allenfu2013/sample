@@ -50,6 +50,8 @@ class Vertex implements Comparable<Vertex> {
      */
     private int path;
 
+    private String plan;
+
     /**
      * 节点是否已经出列(是否已经处理完毕)
      */
@@ -95,6 +97,14 @@ class Vertex implements Comparable<Vertex> {
     public void setMarked(boolean isMarked) {
         this.isMarked = isMarked;
     }
+
+    public String getPlan() {
+        return plan;
+    }
+
+    public void setPlan(String plan) {
+        this.plan = plan;
+    }
 }
 
 class Graph {
@@ -124,8 +134,7 @@ class Graph {
      * 搜索各顶点最短路径
      */
     public void search() {
-        System.out.println("search start...");
-        // TODO
+        System.out.println("搜索节点A到其他节点的最短路径如下:");
         while (!unVisited.isEmpty()) {
             Vertex vertex = unVisited.element();
             //顶点已经计算出最短路径，设置为"已访问"
@@ -136,7 +145,11 @@ class Graph {
             updatesDistance(vertex, neighbors);
             pop();
         }
-        System.out.println("search over");
+        for (Vertex v : vertexs) {
+            if (!v.getName().equals("A")) {
+                System.out.println("A->" + v.getName() + " : " + v.getPlan() + " : " + v.getPath());
+            }
+        }
     }
 
     /*
@@ -155,6 +168,11 @@ class Graph {
         int distance = getDistance(vertex, neighbor) + vertex.getPath();
         if (distance < neighbor.getPath()) {
             neighbor.setPath(distance);
+            if (vertex.getPlan() == null) {
+                neighbor.setPlan(vertex.getName() + "->" + neighbor.getName());
+            } else {
+                neighbor.setPlan(vertex.getPlan() + "->" + neighbor.getName());
+            }
         }
     }
 
@@ -221,6 +239,7 @@ class Graph {
      * 打印图
      */
     public void printGraph() {
+        System.out.println("图的邻结矩阵如下:");
         int verNums = vertexs.size();
         for (int row = 0; row < verNums; row++) {
             for (int col = 0; col < verNums; col++) {
