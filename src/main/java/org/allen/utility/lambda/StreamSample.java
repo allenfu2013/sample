@@ -2,6 +2,7 @@ package org.allen.utility.lambda;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.function.Predicate;
 
 /**
  * Stream是对集合的包装,通常和lambda一起使用。
@@ -9,7 +10,7 @@ import java.util.List;
  */
 public class StreamSample {
 
-    static  List<Person> persons = new ArrayList<>();
+    static List<Person> persons = new ArrayList<>();
 
     static {
         Person zhangsan = new Person("张三", 20);
@@ -26,9 +27,20 @@ public class StreamSample {
 
     public static void main(String[] args) {
         testFilter();
+        System.out.println("################");
         testLimit();
+        System.out.println("################");
         testSort();
+        System.out.println("################");
         testMin();
+        System.out.println("################");
+        testPredicate();
+        System.out.println("################");
+        testMap();
+        System.out.println("################");
+        testReduce();
+        System.out.println("################");
+        testParalleStream();
     }
 
     private static void testFilter() {
@@ -49,6 +61,30 @@ public class StreamSample {
         // 年龄最小
         Person person = persons.stream().min((p1, p2) -> p1.getAge() - p2.getAge()).get();
         System.out.println(person.getName() + ", " + person.getAge());
+    }
+
+    private static void testPredicate() {
+        Predicate<Person> predicate1 = (person) -> person.getAge() >= 20;
+        Predicate<Person> predicate2 = (person) -> person.getAge() <= 30;
+        persons.stream().filter(predicate1.and(predicate2))
+                .forEach((person) -> System.out.println(person.getName() + ", " + person.getAge()));
+    }
+
+    private static void testMap() {
+        persons.stream().map((person) -> person.getAge() + 1)
+                .forEach(System.out::println);
+    }
+
+    private static void testReduce() {
+        int totalAge = persons.stream().map((person) -> person.getAge())
+                .reduce(0, (a, b) -> a + b);
+        System.out.println(totalAge);
+    }
+
+    private static void testParalleStream() {
+        int totalAge = persons.parallelStream().map((person) -> person.getAge())
+                .reduce(0, (a, b) -> a + b);
+        System.out.println(totalAge);
     }
 
     static class Person {
