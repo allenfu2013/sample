@@ -1,4 +1,4 @@
-package org.allen.utility.algorithm;
+package org.allen.sample.algorithm;
 
 import java.util.ArrayList;
 import java.util.List;

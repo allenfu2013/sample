@@ -1,5 +1,6 @@
 package org.allen.utility.utils;
 
+import org.allen.sample.utils.LoggerUtil;
 import org.junit.Test;
 
 public class LoggerUtilTest {

@@ -1,4 +1,4 @@
-package org.allen.utility.designpattern.chainofresponsibility;
+package org.allen.sample.designpattern.chainofresponsibility;
 
 /**
  * 一个纯的责任链模式要求一个具体的处理者对象只能在两个行为中选择一个：一是承担责任，而是把责任推给下家。

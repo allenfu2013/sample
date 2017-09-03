@@ -1,6 +1,6 @@
-package org.allen.utility.spi;
+package org.allen.sample.spi;
 
-import org.allen.utility.spi.impl.PlusOperationImpl;
+import org.allen.sample.spi.impl.PlusOperationImpl;
 
 import java.util.Iterator;
 import java.util.ServiceLoader;

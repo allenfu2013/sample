@@ -1,4 +1,4 @@
-package org.allen.utility.utils;
+package org.allen.sample.utils;
 
 import sun.net.util.IPAddressUtil;
 

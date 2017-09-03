@@ -1,4 +1,4 @@
-package org.allen.utility.spi;
+package org.allen.sample.spi;
 
 public interface IOperation {
 

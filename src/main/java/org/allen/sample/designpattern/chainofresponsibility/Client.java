@@ -1,4 +1,4 @@
-package org.allen.utility.designpattern.chainofresponsibility;
+package org.allen.sample.designpattern.chainofresponsibility;
 
 /**
  * Created by allen on 17/3/6.

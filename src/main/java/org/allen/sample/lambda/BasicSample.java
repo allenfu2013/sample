@@ -1,4 +1,4 @@
-package org.allen.utility.lambda;
+package org.allen.sample.lambda;
 
 import java.util.Arrays;
 import java.util.Comparator;

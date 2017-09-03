@@ -1,4 +1,4 @@
-package org.allen.utility.concurrent;
+package org.allen.sample.concurrent;
 
 /**
  * ThreadLocal 空间换时间

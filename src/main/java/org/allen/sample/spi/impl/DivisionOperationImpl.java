@@ -1,6 +1,6 @@
-package org.allen.utility.spi.impl;
+package org.allen.sample.spi.impl;
 
-import org.allen.utility.spi.IOperation;
+import org.allen.sample.spi.IOperation;
 
 public class DivisionOperationImpl implements IOperation {
     @Override

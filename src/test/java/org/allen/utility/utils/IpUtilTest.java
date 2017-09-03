@@ -1,5 +1,6 @@
 package org.allen.utility.utils;
 
+import org.allen.sample.utils.IpUtil;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
